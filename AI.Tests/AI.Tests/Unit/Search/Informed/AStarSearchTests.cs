@@ -15,7 +15,7 @@ using Microsoft.Extensions.Logging.Abstractions;
 namespace AI.Tests.Unit.Search.Informed;
 
 [TestClass]
-public sealed class AStarSearchTest
+public sealed class AStarSearchTests
 {
     private const bool ConsoleLogging = true;
 
