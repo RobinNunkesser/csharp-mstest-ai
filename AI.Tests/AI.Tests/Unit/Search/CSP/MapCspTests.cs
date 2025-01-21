@@ -30,4 +30,17 @@ public class MapCspTests
             Assert.AreEqual(MapCSP.BLUE, assignment.GetValue(MapCSP.V));
             Assert.AreEqual(MapCSP.RED, assignment.GetValue(MapCSP.T));
     }   
+    
+    [TestMethod]
+    public void TestRecommendedBackTrackingSearch()
+    {
+        var solver = new FlexibleBacktrackingSolver<Variable, string>
+            {
+                variableSelectionStrategy = new CspHeuristics.MrvDegHeuristic<Variable,string>(),
+                valueOrderingStrategy = new CspHeuristics.LeastConstrainingValueHeuristic<Variable,string>()
+            };
+
+        var assignment = solver.Solve(csp);
+        Assert.IsNotNull(assignment);
+    }   
 }
